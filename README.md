@@ -1,17 +1,20 @@
 # Memory Game Project
 
+![alt text](https://i.imgur.com/UcepyaX.png)
+
+
 ## Table of Contents
 
 * [Instructions](#instructions)
-* [Contributing](#contributing)
 
 ## Instructions
 
 In this game you have to look for two the same cards.
 The game ends after you connect all cards in pairs.
+You must get as many stars as possible in the shortest possible time. You get one star less if you have over 26 moves. With 52 moves you only get one star. After the game is over, you can resume it with the button.
 
-## Contributing
+To run this app, you can use:
+### `git clone https://github.com/VessJS/memory-game.git`
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
 
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+[DEMO](http://htmlpreview.github.io/?https://github.com/VessJS/memory-game/blob/master/index.html)

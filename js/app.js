@@ -1,5 +1,5 @@
 /*
- * Create a list that holds all of your cards
+ *  LIST OF CARDS
  */
 
 const listOfCards = [
@@ -43,7 +43,7 @@ let openCards = [];
 let matchList = [];
 let counterOfMoves = 0;
 
-addRandomSymbolToCard(cards);
+randomSymbolsInCards(cards);
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -59,7 +59,9 @@ function shuffle(array) {
     return array;
 }
 
-function addRandomSymbolToCard(array) {
+// SHUFFLE CARDS
+
+function randomSymbolsInCards(array) {
     let shuffleListOfCards = shuffle(listOfCards);
     for (let i = 0; i < array.length; i++) {
         array[i].firstElementChild.className = shuffleListOfCards[i];
@@ -77,6 +79,7 @@ function addRandomSymbolToCard(array) {
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
 
+// SHUTS TIME
 function addTimeToTimer(number) {
     if (number < 10) {
         return '0' + number;
@@ -85,6 +88,7 @@ function addTimeToTimer(number) {
     }
 }
 
+// SHUTS TIME
 function startTimer() {
     timerCounter++;
     sec = timerCounter;
@@ -114,6 +118,7 @@ deckOfCards.addEventListener("click", function (e) {
     }
 });
 
+// SHOWS CARD
 function showSymbol(e) {
     e.target.className = 'card open show';
     e.target.isClicked = 1;
@@ -124,7 +129,7 @@ function addCardToOpenCards(evt) {
     checkTwoCardsMatch(openCards);
     checkTwoCardsNoMatch(openCards);
 }
-
+// CHECKS IF IS MATCH
 function checkTwoCardsMatch(array) {
     if (array.length === 2 && array[0].className === array[1].className) {
         array[0].parentNode.className = 'card match show';
@@ -133,7 +138,7 @@ function checkTwoCardsMatch(array) {
         clearTheOpenCards(array);
     }
 }
-
+// IF NOT THIS HAPPENED
 function checkTwoCardsNoMatch(array) {
     if (array.length === 2 && array[0].className !== array[1].className) {
         setTimeout(function () {
@@ -153,7 +158,7 @@ function clearTheOpenCards(array) {
     return array;
 }
 
-
+// FUNCTION COUNT NUMBER OF MOVEMENTS
 function incrementCounter() {
     counterOfMoves++;
     moveCounterDisplay.innerHTML = counterOfMoves;
@@ -177,6 +182,7 @@ function timeOfGame() {
     return endTime;
 }
 
+// FUNCTION THAT OPEN SCREEN AFTER GAME END
 function openEndScreen() {
     document.getElementById("endScreen").style.display = "block";
     document.querySelector('#total-time').innerHTML = (Math.round(endTime / 1000, 2) + ' sec');
@@ -203,7 +209,7 @@ function removeStarFromScorePanel() {
         starsPanel.lastElementChild.previousElementSibling.style.visibility = 'hidden';
     }
 }
-
+// FUNCTION THAT RESET GAME TO START POSITION
 function resetGame() {
     for (let card of cards) {
         card.className = "card close";
@@ -217,7 +223,7 @@ function resetGame() {
     moveCounterDisplay.innerHTML = counterOfMoves;
     matchList = [];
     openCards = [];
-    addRandomSymbolToCard(cards);
+    randomSymbolsInCards(cards);
     document.getElementById("endScreen").style.display = "none";
 }
 
