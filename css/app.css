@@ -123,8 +123,12 @@ h1 {
 #endScreenContent {
     padding: 20px;
     background: rgba(39, 186, 190, 1);
-    margin: 50% auto;
+    margin: 50% 10%;
     text-align: center;
     border-radius: 8px;
     position: relative;
+}
+
+.stars ul {
+    list-style: none;
 }

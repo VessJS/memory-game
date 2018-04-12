@@ -2,31 +2,18 @@
  *  LIST OF CARDS
  */
 
-const listOfCards = [
+const myCards = [
     "fa fa-diamond",
     "fa fa-paper-plane-o",
     "fa fa-bomb",
     "fa fa-bolt",
     "fa fa-bicycle",
     "fa fa-anchor",
-    "fa fa-bolt",
     "fa fa-cube",
-    "fa fa-anchor",
-    "fa fa-cube",
-    "fa fa-bicycle",
-    "fa fa-diamond",
-    "fa fa-bomb",
     "fa fa-leaf",
-    "fa fa-leaf",
-    "fa fa-paper-plane-o"
 ];
 
-/*
- * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below
- *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
- */
+const listOfCards = myCards.concat(myCards);
 
 const cards = document.querySelectorAll('.deck li');
 const deckOfCards = document.querySelector('.deck');
@@ -67,17 +54,6 @@ function randomSymbolsInCards(array) {
         array[i].firstElementChild.className = shuffleListOfCards[i];
     }
 }
-
-/*
- * set up the event listener for a card. If a card is clicked:
- *  - display the card's symbol (put this functionality in another function that you call from this one)
- *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
- *  - if the list already has another card, check to see if the two cards match
- *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
- *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
- *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
- *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
- */
 
 // SHUTS TIME
 function addTimeToTimer(number) {
@@ -129,6 +105,7 @@ function addCardToOpenCards(evt) {
     checkTwoCardsMatch(openCards);
     checkTwoCardsNoMatch(openCards);
 }
+
 // CHECKS IF IS MATCH
 function checkTwoCardsMatch(array) {
     if (array.length === 2 && array[0].className === array[1].className) {
@@ -138,6 +115,7 @@ function checkTwoCardsMatch(array) {
         clearTheOpenCards(array);
     }
 }
+
 // IF NOT THIS HAPPENED
 function checkTwoCardsNoMatch(array) {
     if (array.length === 2 && array[0].className !== array[1].className) {
@@ -209,6 +187,7 @@ function removeStarFromScorePanel() {
         starsPanel.lastElementChild.previousElementSibling.style.visibility = 'hidden';
     }
 }
+
 // FUNCTION THAT RESET GAME TO START POSITION
 function resetGame() {
     for (let card of cards) {
